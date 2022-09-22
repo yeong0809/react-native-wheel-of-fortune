@@ -201,7 +201,7 @@ class WheelOfFortune extends Component {
 
   _renderSvgWheel = () => {
     return (
-      <View style={styles.container}>
+      <View style={[styles.container, { height: width + 40 + this.props.options.knobSize }]}>
         {this._renderKnob()}
         <Animated.View
           style={{
@@ -339,7 +339,7 @@ class WheelOfFortune extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <View style={[styles.container, { height: width + 40 + this.props.options.knobSize }]}>
         <View
           style={{
             position: 'absolute',
@@ -362,7 +362,7 @@ export default WheelOfFortune;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    // flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },
