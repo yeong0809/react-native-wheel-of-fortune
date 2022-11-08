@@ -175,7 +175,16 @@ class WheelOfFortune extends Component {
       }
       textAnchor="middle"
       fontSize={this.fontSize}>
-      {Array.from({length: number.length}).map((_, j) => {
+        {number.split(' ').map((text, index) => (
+          <TSpan
+              y={y - 60}
+              x={x}
+              dy={this.fontSize*index}
+          >
+              {`${text}`}
+            </TSpan>
+        ))}
+      {/* {Array.from({length: number.length}).map((_, j) => {
         // Render reward text vertically
         if (this.props.options.textAngle === 'vertical') {
           return (
@@ -195,13 +204,13 @@ class WheelOfFortune extends Component {
             </TSpan>
           );
         }
-      })}
+      })} */}
     </Text>
   );
 
   _renderSvgWheel = () => {
     return (
-      <View style={styles.container}>
+      <View style={[styles.container, { height: width + 40 + this.props.options.knobSize }]}>
         {this._renderKnob()}
         <Animated.View
           style={{
@@ -339,7 +348,7 @@ class WheelOfFortune extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <View style={[styles.container, { height: width + 40 + this.props.options.knobSize }]}>
         <View
           style={{
             position: 'absolute',
@@ -362,7 +371,7 @@ export default WheelOfFortune;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    // flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },
