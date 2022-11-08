@@ -175,7 +175,16 @@ class WheelOfFortune extends Component {
       }
       textAnchor="middle"
       fontSize={this.fontSize}>
-      {Array.from({length: number.length}).map((_, j) => {
+        {number.split(' ').map((text, index) => (
+          <TSpan
+              y={y - 60}
+              x={x}
+              dy={this.fontSize*index}
+          >
+              {`${text}`}
+            </TSpan>
+        ))}
+      {/* {Array.from({length: number.length}).map((_, j) => {
         // Render reward text vertically
         if (this.props.options.textAngle === 'vertical') {
           return (
@@ -195,7 +204,7 @@ class WheelOfFortune extends Component {
             </TSpan>
           );
         }
-      })}
+      })} */}
     </Text>
   );
 
